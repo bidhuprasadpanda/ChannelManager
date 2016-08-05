@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">ChannelManager</string>
+
+    <string name="backdrop_title">LOVE MUSIC</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
+
+    <!-- Flash Screen Strings -->
+    <string name="move_to_login">Click here to login >> </string>
+    <string name="pagination_images">Dot images for pagination</string>
+
+    <!-- Login Activity Strings -->
+    <string name="tv_login_title">Agent login here</string>
+    <string name="username_hint">User Name</string>
+    <string name="password_hint">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="wrong_user_name">Please enter your user name.</string>
+    <string name="wrong_password">Please enter your password.</string>
+    <string name="dialog_login">Authenticating, please wait..</string>
+
+    <!-- HotelsListActivity -->
+    <string name="no_hotels_available">No hotels available!</string>
+    <string name="dialog_loading_hotels">Loading hotel(s) list, please wait..</string>
+
+    <!-- Dashboard2Activity -->
+    <string name="DEFAULT_FRAGMENT">app.hex.fragments.newbookings.NewBookingsFragment</string>
+    <string name="loading_store_dialog"></string>
+
+    <!-- NewBookingsFragment -->
+    <string name="no_bookings_available">No bookings available!</string>
+
+    <!-- NewContractFragment -->
+    <string name="email_address_hint">Email Addresses (comma separated)</string>
+    <string name="select_contract">Select Contract</string>
+    <string name="send_contract">SEND CONTRACT >></string>
+
+    <!-- UiUtilities -->
+    <string name="progress_dialog_message">Loading please wait..</string>
+    <string name="progress_dialog_title">Information</string>
+    <string name="dialog_title_information">No Internet</string>
+    <string name="dialog_title_error">Oops!!</string>
+    <string name="dialog_button_Ok">OK</string>
+    <string name="dialog_button_Confirm">Confirm</string>
+    <string name="dialog_message">"Are you sure you want to delete this photo?"</string>
+    <string name="dialog_button_Cancel">Cancel</string>
+    <string name="dialog_title_warning">Warning</string>
+
+    <!-- Activitie's loding message for httprequest -->
+    <string name="loading_message_new_booking">Loading new bookings, please wait..</string>
+    <string name="loading_message_upcoming_checkins">Loading upcoming check-ins, please wait..</string>
+    <string name="loading_message_contracts">Loading contracts, please wait..</string>
+    <string name="loading_message_buyers">Loading buyers, please wait..</string>
+    <string name="loading_message_rooms_and_rates">Loading rooms and rate plans, please wait..</string>
+    <string name="loading_message_fetch_inventory">Loading inventory, please wait..</string>
+    <string name="loading_message_fetch_price">Loading price details, please wait..</string>
+    <string name="loading_message_update_price">Updating price details, please wait..</string>
+    <string name="loading_message_update_inventory">Updating inventory, please wait..</string>
+    <string name="loading_message_master_sheet">Loading details for this date, please wait..</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="cancel_disclaimer">Since you have declined the agreement you will not be able to use this mobile application. If you still want to use the app, Click on \'I Agree\'</string>
+    <string name="agree">I Agree</string>
+    <string name="close_app">Close App</string>
+    <string name="axisrooms_license">Axisrooms Identifier License</string>
+    <string name="disclosure_text"><Data>
+<![CDATA[ <small><small>We will obtain your personal information such as <br /><br />
+     * Email Id <br /> * Name <br /> * Mobile number <br /> to identify you <br /><br />
+     We will not share your personal information with any third party and will save in most secure manner on Axisrooms servers.
+     <br /> It is compulsory to accept this agreement to use Axisrooms services. </small></small>]]>
+</Data></string>
+</resources>
