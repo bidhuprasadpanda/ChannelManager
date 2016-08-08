@@ -1,12 +1,11 @@
-package com.axisrooms.channelmanager.com.axisrooms;
+package com.axisrooms.channelmanager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.axisrooms.channelmanager.R;
-import com.axisrooms.channelmanager.com.axisrooms.fragments.Homefragment;
-import com.axisrooms.channelmanager.com.axisrooms.fragments.inventoryfragment;
+import com.axisrooms.channelmanager.com.axisrooms.fragments.HomeFragment;
+import com.axisrooms.channelmanager.com.axisrooms.fragments.InventoryFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarFragment;
 import com.roughike.bottombar.OnTabSelectedListener;
@@ -21,18 +20,20 @@ public class HotelDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hotel_details);
+        setContentView(R.layout.hotel_details_activity);
         bottomBar = BottomBar.attach(this, savedInstanceState);
         Intent hotelDetails = getIntent();
-        Homefragment homefragment=new Homefragment();
-        homefragment.setHotelDetails(hotelDetails);
-
+        HomeFragment homeFragment =new HomeFragment();
+        homeFragment.setHotelDetails(hotelDetails);
+        homeFragment.setContext(this);
+        InventoryFragment inventoryFragment =new InventoryFragment();
+        inventoryFragment.setHotelDetails(hotelDetails);
+        inventoryFragment.setContext(this);
         bottomBar.setFragmentItems(getSupportFragmentManager(), R.id.fragmentContainer,
-//                new BottomBarFragment(SampleFragment.newInstance("Content for recents."), R.drawable.ic_update_white_24dp, "Recents"),
-//                new BottomBarFragment(SampleFragment.newInstance("Content for food."), R.drawable.ic_local_dining_white_24dp, "Food"),
-//                new BottomBarFragment(SampleFragment.newInstance("Content for favorites."), R.drawable.ic_favorite_white_24dp, "Favorites"),
-                new BottomBarFragment(homefragment, R.mipmap.ic_local_dining_white_24dp, "Location"),
-                new BottomBarFragment(new inventoryfragment(), R.mipmap.ic_favorite_white_24dp, "Location")
+            new BottomBarFragment(homeFragment, R.mipmap.ic_local_dining_white_24dp, "Home"),
+            new BottomBarFragment(inventoryFragment, R.mipmap.ic_favorite_white_24dp, "Inventory"),
+            new BottomBarFragment(new InventoryFragment(), R.mipmap.ic_favorite_white_24dp, "Price"),
+            new BottomBarFragment(new InventoryFragment(), R.mipmap.ic_favorite_white_24dp, "Bookings")
         );
 
 

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.axisrooms.channelmanager.com.axisrooms.adapters.HotelAdapter;
 import com.axisrooms.channelmanager.com.axisrooms.constants.EndPoints;
@@ -41,6 +42,11 @@ public class HotelListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        TextView supplierName =(TextView) findViewById(R.id.supplierName);
+        TextView supplieremail=(TextView) findViewById(R.id.supplierEmail);
+        supplierName.setText(AgentData.getNAME());
+        supplieremail.setText(AgentData.getSupplierEmail());
+
         setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
@@ -52,7 +58,7 @@ public class HotelListActivity extends AppCompatActivity {
         rqParams.put(ParameterConstants.session_id,AgentData.getSessionId());
         rqParams.put(ParameterConstants.supplierId,String.valueOf(AgentData.getSupplierId()));
 
-        OkHttpHandler handler=new OkHttpHandler(null, EndPoints.hotelList, OkHttpHandler.MethodType.POST,new Gson().toJson(rqParams));
+        OkHttpHandler handler=new OkHttpHandler(EndPoints.hotelList,rqParams,  OkHttpHandler.MethodType.POST);
         String result=null;
 
         try{
@@ -82,7 +88,7 @@ public class HotelListActivity extends AppCompatActivity {
         recyclerView.setAdapter(hotelAdapter);
 
         try {
-            Glide.with(this).load(R.drawable.splash_background)
+            Glide.with(this).load(R.color.album_title)
                     .into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +102,7 @@ public class HotelListActivity extends AppCompatActivity {
     private void initCollapsingToolbar() {
         final  CollapsingToolbarLayout collapsingToolbar=
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
+        //collapsingToolbar.setTitle(" ");
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
         appBarLayout.setExpanded(true);
 

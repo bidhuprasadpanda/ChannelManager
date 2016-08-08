@@ -1,6 +1,5 @@
 package com.axisrooms.channelmanager.com.axisrooms.userDetails;
 
-import android.content.Context;
 
 import com.axisrooms.channelmanager.com.axisrooms.jsonclass.LoginResponse;
 
@@ -13,13 +12,14 @@ public class AgentData {
     private static long SUPPLIER_ID = 0L;
     private static String NAME = "";
     private static String userTypeId="";
+    private static  String SUPPLIER_EMAIL ="";
 
     private static String selectedHotelImage="";
     private static String selectedHotelName="";
     private static String selectedHotelAddrress="";
 
-    public static void saveAgentLoginData(Context context,
-                                          LoginResponse lro) {
+
+    public static void saveAgentLoginData(LoginResponse lro) {
         SUPPLIER_ID = lro.getSupplierId();
         NAME = lro.getName();
         SESSION_ID = lro.getSESSIONID();
@@ -32,6 +32,14 @@ public class AgentData {
 
     public static void setSelectedHotelImage(String selectedHotelImage) {
         AgentData.selectedHotelImage = selectedHotelImage;
+    }
+
+    public static String getSupplierEmail() {
+        return SUPPLIER_EMAIL;
+    }
+
+    public static void setSupplierEmail(String supplierEmail) {
+        AgentData.SUPPLIER_EMAIL = supplierEmail;
     }
 
     public static String getSelectedHotelName() {

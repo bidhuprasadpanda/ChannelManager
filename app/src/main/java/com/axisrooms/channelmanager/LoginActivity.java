@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 rqParams.put(ParameterConstants.password,password.getText().toString());
                 rqParams.put(ParameterConstants.userType,"1");
 
-                OkHttpHandler handler=new OkHttpHandler(rqParams, EndPoints.Login, OkHttpHandler.MethodType.GET,"");
+                OkHttpHandler handler=new OkHttpHandler(EndPoints.Login,rqParams, OkHttpHandler.MethodType.GET);
                 String result=null;
 
                 try{
@@ -74,10 +74,11 @@ public class LoginActivity extends AppCompatActivity {
                         {
 
                             session.createLoginSession(AgentData.getNAME(),username.getText().toString() );
-                            AgentData.saveAgentLoginData(getApplicationContext(),loginResponse);
+                            AgentData.setSupplierEmail(username.getText().toString());
+                            AgentData.saveAgentLoginData(loginResponse);
 
-                            Intent secondActivity=new Intent(getApplicationContext(),HotelListActivity.class);
-                            startActivity(secondActivity);
+                            Intent hotelListActivity=new Intent(getApplicationContext(),HotelListActivity.class);
+                            startActivity(hotelListActivity);
                             //Intent hotelListActivity=new Intent(getApplicationContext(),HotelListActivity.class);
                             //Log.v("",AgentData.getSupplierId()+"");
                             //startActivity(hotelListActivity);

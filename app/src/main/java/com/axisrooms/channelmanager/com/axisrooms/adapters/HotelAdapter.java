@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 import com.axisrooms.channelmanager.HotelListActivity;
 import com.axisrooms.channelmanager.R;
-import com.axisrooms.channelmanager.com.axisrooms.HotelDetail;
+import com.axisrooms.channelmanager.HotelDetail;
 import com.axisrooms.channelmanager.com.axisrooms.constants.Attributes;
+import com.axisrooms.channelmanager.com.axisrooms.constants.ParameterConstants;
 import com.axisrooms.channelmanager.com.axisrooms.jsonclass.HotelsListResponse;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.future.ImageViewFuture;
@@ -44,7 +45,6 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
         this.mContext = mContext;
         this.hotelsListResponse = hotelsListResponse;
     }
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -55,7 +55,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        HotelsListResponse.HotelDetails hotelDetails = hotelsListResponse.getHotelList().get(position);
+        final HotelsListResponse.HotelDetails hotelDetails = hotelsListResponse.getHotelList().get(position);
         holder.title.setText(hotelDetails.getName());
         holder.count.setText(hotelDetails.getLocation());
 
@@ -64,10 +64,14 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
             public void onClick(View v) {
                 //Snackbar.make(v, "position "+selectedPosition, Snackbar.LENGTH_LONG).show();
 
+                String hotelImage=hotelDetails.getImage();
+                int hotelId=hotelDetails.getId();
+
                 Intent hotelDetails=new Intent(mContext,HotelDetail.class);
                 hotelDetails.putExtra(Attributes.name, holder.title.getText().toString());
-                hotelDetails.putExtra(Attributes.location, holder.count.getText().toString());
-                //hotelDetails.putExtra(Attributes.imageURL, holder.thumbnail.get);
+                hotelDetails.putExtra(ParameterConstants.hotelId, hotelId);
+                hotelDetails.putExtra(Attributes.location,  holder.count.getText().toString());
+                hotelDetails.putExtra(Attributes.imageURL, hotelImage);
                 mContext.startActivity(hotelDetails);
             }
         });

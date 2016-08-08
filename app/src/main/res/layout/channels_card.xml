@@ -4,46 +4,40 @@
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
+        android:id="@+id/channelsCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
-        android:elevation="5dp"
-        card_view:cardCornerRadius="@dimen/card_album_radius">
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardElevation="0dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/thumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/album_cover_height"
+                android:id="@+id/active"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
+                android:clickable="false"
+                android:src="@drawable/logout"
                 android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/hotelName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/thumbnail"
+                android:layout_toRightOf="@id/active"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
-                android:paddingTop="@dimen/album_title_padding"
                 android:textColor="@color/album_title"
-                android:textSize="@dimen/album_title" />
+                android:text="Axisrooms"
+                android:textSize="16sp"
+                android:layout_alignParentTop="true" />
 
-            <TextView
-                android:id="@+id/count"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/hotelName"
-                android:paddingBottom="@dimen/songs_count_padding_bottom"
-                android:paddingLeft="@dimen/album_title_padding"
-                android:paddingRight="@dimen/album_title_padding"
-                android:textSize="@dimen/songs_count" />
 
         </RelativeLayout>
 

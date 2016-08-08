@@ -3,6 +3,7 @@ package com.axisrooms.channelmanager.com.axisrooms.request;
 import android.os.AsyncTask;
 
 import com.axisrooms.channelmanager.com.axisrooms.constants.HttpLinks;
+import com.google.gson.Gson;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -26,12 +27,10 @@ public class OkHttpHandler extends AsyncTask<String, Void, String> {
     final String URL= HttpLinks.SERVER_IP_PROD;
     String endPoint;
     MethodType mtype;
-    String json;
-    public OkHttpHandler(HashMap<String,String> rqParams,String endPoint, MethodType mtype,String json) {
+    public OkHttpHandler(String endPoint,HashMap<String,String> rqParams, MethodType mtype) {
         this.rqParams = rqParams;
         this.endPoint=endPoint;
         this.mtype=mtype;
-        this.json=json;
     }
 
     @Override
@@ -60,7 +59,7 @@ public class OkHttpHandler extends AsyncTask<String, Void, String> {
             return null;
         }else if(mtype==MethodType.POST)
         {
-            RequestBody body = RequestBody.create(JSON, json);
+            RequestBody body = RequestBody.create(JSON, new Gson().toJson(rqParams));
             Request request = new Request.Builder()
                     .url(URL+endPoint)
                     .post(body)
