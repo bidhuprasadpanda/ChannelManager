@@ -72,7 +72,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/search_field"/>
     <include layout="@layout/hotel_content_list" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -15,6 +15,7 @@ import com.axisrooms.channelmanager.HotelDetail;
 import com.axisrooms.channelmanager.com.axisrooms.constants.Attributes;
 import com.axisrooms.channelmanager.com.axisrooms.constants.ParameterConstants;
 import com.axisrooms.channelmanager.com.axisrooms.jsonclass.HotelsListResponse;
+import com.axisrooms.channelmanager.com.axisrooms.userDetails.AgentData;
 import com.koushikdutta.ion.Ion;
 import com.koushikdutta.ion.future.ImageViewFuture;
 
@@ -68,10 +69,18 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.MyViewHolder
                 int hotelId=hotelDetails.getId();
 
                 Intent hotelDetails=new Intent(mContext,HotelDetail.class);
+
                 hotelDetails.putExtra(Attributes.name, holder.title.getText().toString());
                 hotelDetails.putExtra(ParameterConstants.hotelId, hotelId);
                 hotelDetails.putExtra(Attributes.location,  holder.count.getText().toString());
                 hotelDetails.putExtra(Attributes.imageURL, hotelImage);
+
+                AgentData.setSelectedHotelName(holder.title.getText().toString());
+                AgentData.setSelectedHotelImage(hotelImage);
+                AgentData.setHotelLocaction(holder.count.getText().toString());
+                AgentData.setHotelId(hotelId);
+
+
                 mContext.startActivity(hotelDetails);
             }
         });

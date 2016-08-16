@@ -14,7 +14,7 @@ public class HttpLinks {
 
             if(AxisroomsProperties.isLocal())
             {
-                SERVER_IP_PROD=    "http://192.168.1.132:8080/hexapi/";
+                SERVER_IP_PROD=    "http://192.168.1.193:8080/hexapi/";
             }
         }
     }

@@ -36,18 +36,23 @@ public class HotelListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HotelAdapter hotelAdapter;
     private HotelsListResponse hotelsListResponse;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
+
+
+
         TextView supplierName =(TextView) findViewById(R.id.supplierName);
         TextView supplieremail=(TextView) findViewById(R.id.supplierEmail);
         supplierName.setText(AgentData.getNAME());
         supplieremail.setText(AgentData.getSupplierEmail());
 
-        setSupportActionBar(toolbar);
+
 
         initCollapsingToolbar();
 

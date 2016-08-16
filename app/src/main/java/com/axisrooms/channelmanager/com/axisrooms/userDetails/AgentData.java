@@ -18,6 +18,9 @@ public class AgentData {
     private static String selectedHotelName="";
     private static String selectedHotelAddrress="";
 
+    private static  String hotelLocaction="";
+    private static  long hotelId=0;
+
 
     public static void saveAgentLoginData(LoginResponse lro) {
         SUPPLIER_ID = lro.getSupplierId();
@@ -32,6 +35,22 @@ public class AgentData {
 
     public static void setSelectedHotelImage(String selectedHotelImage) {
         AgentData.selectedHotelImage = selectedHotelImage;
+    }
+
+    public static String getHotelLocaction() {
+        return hotelLocaction;
+    }
+
+    public static void setHotelLocaction(String hotelLocaction) {
+        AgentData.hotelLocaction = hotelLocaction;
+    }
+
+    public static long getHotelId() {
+        return hotelId;
+    }
+
+    public static void setHotelId(long hotelId) {
+        AgentData.hotelId = hotelId;
     }
 
     public static String getSupplierEmail() {

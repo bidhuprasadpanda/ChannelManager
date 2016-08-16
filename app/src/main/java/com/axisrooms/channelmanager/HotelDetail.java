@@ -1,12 +1,15 @@
 package com.axisrooms.channelmanager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.axisrooms.channelmanager.com.axisrooms.fragments.HomeFragment;
 import com.axisrooms.channelmanager.com.axisrooms.fragments.InventoryFragment;
 import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.BottomBarBadge;
 import com.roughike.bottombar.BottomBarFragment;
 import com.roughike.bottombar.OnTabSelectedListener;
 
@@ -16,11 +19,15 @@ import com.roughike.bottombar.OnTabSelectedListener;
 public class HotelDetail extends AppCompatActivity {
 
     private BottomBar bottomBar;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel_details_activity);
+        toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+
         bottomBar = BottomBar.attach(this, savedInstanceState);
         Intent hotelDetails = getIntent();
         HomeFragment homeFragment =new HomeFragment();
@@ -32,8 +39,8 @@ public class HotelDetail extends AppCompatActivity {
         bottomBar.setFragmentItems(getSupportFragmentManager(), R.id.fragmentContainer,
             new BottomBarFragment(homeFragment, R.mipmap.ic_local_dining_white_24dp, "Home"),
             new BottomBarFragment(inventoryFragment, R.mipmap.ic_favorite_white_24dp, "Inventory"),
-            new BottomBarFragment(new InventoryFragment(), R.mipmap.ic_favorite_white_24dp, "Price"),
-            new BottomBarFragment(new InventoryFragment(), R.mipmap.ic_favorite_white_24dp, "Bookings")
+            new BottomBarFragment(inventoryFragment, R.mipmap.ic_favorite_white_24dp, "Price"),
+            new BottomBarFragment(inventoryFragment, R.mipmap.ic_favorite_white_24dp, "Bookings")
         );
 
 
@@ -48,22 +55,22 @@ public class HotelDetail extends AppCompatActivity {
         });
 
 //        // Make a Badge for the first tab, with red background color and a value of "4".
-//        BottomBarBadge unreadMessages = bottomBar.makeBadgeForTabAt(0, "#E91E63", 4);
+        BottomBarBadge noofBookings = bottomBar.makeBadgeForTabAt(3, "#E91E63", 20);
 //        BottomBarBadge newMessages = bottomBar.makeBadgeForTabAt(3, "#9B26AF" , 10);
 
         // Control the badge's visibility
-//        unreadMessages.show();
+        noofBookings.show();
         //unreadMessages.hide();
 
         // Change the displayed count for this badge.
         //unreadMessages.setCount(4);
 
         // Change the show / hide animation duration.
-//        unreadMessages.setAnimationDuration(200);
+       noofBookings.setAnimationDuration(200);
 //        newMessages.setAnimationDuration(600);
 
         // If you want the badge be shown always after unselecting the tab that contains it.
-        //unreadMessages.setAutoShowAfterUnSelection(true);
+        noofBookings.setAutoShowAfterUnSelection(true);
 
     }
 }
